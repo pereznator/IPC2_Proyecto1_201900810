@@ -1,0 +1,14 @@
+<matrices>
+    <matriz nombre="ejemplo" n="2" m="2">
+        <item x="2" y="1">2</item>
+        <item x="1" y="1">1</item>
+        <item x="1" y="2">3</item>
+        <item x="2" y="2">4</item>
+    </matriz>
+    <matriz nombre="ejemplo2" n="2" m="2">
+        <item x="1" y="1">1</item>
+        <item x="2" y="1">2</item>
+        <item x="2" y="2">4</item>
+        <item x="1" y="2">3</item>
+    </matriz>
+</matrices>

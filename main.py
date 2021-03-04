@@ -1,5 +1,8 @@
-from cargar-archivo import CargarArchivo
+from cargararchivo import CargarArchivo
+from procesararchivo import ProcesarArchivo as Proceso
+
 class Main:
+    matrices = []
     def __init__(self):
         self.menu()
 
@@ -17,8 +20,15 @@ class Main:
             opcion = input()
             if opcion == '1':
                 print('Cargar Archivo')
+                archivo = CargarArchivo()
+                if not archivo.error:
+                    self.matrices = archivo.matrices
             elif opcion == '2':
                 print('Procesar archivo')
+                if len(self.matrices) == 0:
+                    print('Se debe cargar un archivo primero')
+                else:
+                    pa = Proceso(self.matrices)
             elif opcion == '3':
                 print('Escribir archivo de salida')
             elif opcion == '4':
