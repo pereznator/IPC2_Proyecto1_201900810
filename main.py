@@ -29,6 +29,7 @@ class Main:
                     print('Se debe cargar un archivo primero')
                 else:
                     pa = Proceso(self.matrices)
+                    matricesReducidas = pa.resultado
             elif opcion == '3':
                 print('Escribir archivo de salida')
             elif opcion == '4':
