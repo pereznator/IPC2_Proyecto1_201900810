@@ -1,0 +1,28 @@
+<matrices>
+<matriz nombre="noche-reducida" n="3" m="4">
+<item x="1" y="1">4</item>
+<item x="2" y="1">4</item>
+<item x="3" y="1">0</item>
+<item x="4" y="1">0</item>
+<item x="1" y="2">5</item>
+<item x="2" y="2">0</item>
+<item x="3" y="2">5</item>
+<item x="4" y="2">0</item>
+<item x="1" y="3">0</item>
+<item x="2" y="3">0</item>
+<item x="3" y="3">0</item>
+<item x="4" y="3">1</item>
+</matriz>
+<matriz nombre="otra-reducida" n="2" m="5">
+<item x="1" y="1">8</item>
+<item x="2" y="1">0</item>
+<item x="3" y="1">5</item>
+<item x="4" y="1">7</item>
+<item x="5" y="1">0</item>
+<item x="1" y="2">0</item>
+<item x="2" y="2">15</item>
+<item x="3" y="2">0</item>
+<item x="4" y="2">0</item>
+<item x="5" y="2">10</item>
+</matriz>
+</matrices>

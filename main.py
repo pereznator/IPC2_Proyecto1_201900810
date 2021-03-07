@@ -1,5 +1,7 @@
 from cargararchivo import CargarArchivo
 from procesararchivo import ProcesarArchivo as Proceso
+from escribirarchivo import EscribirArchivo as Escribir
+from grafico import Grafica
 
 class Main:
     matrices = []
@@ -29,13 +31,21 @@ class Main:
                     print('Se debe cargar un archivo primero')
                 else:
                     pa = Proceso(self.matrices)
-                    matricesReducidas = pa.resultado
+                    self.matricesReducidas = pa.resultado
             elif opcion == '3':
-                print('Escribir archivo de salida')
+                if not self.matricesReducidas:
+                    print('Debe haber generado matrices reducidas primero')
+                else:
+                    print('Escribir archivo de salida')
+                    escribir = Escribir(self.matricesReducidas)
             elif opcion == '4':
                 print('Mostrar datos del Estudiante')
             elif opcion == '5':
                 print('Generar Grafica')
+                if not self.matricesReducidas and not self.matrices:
+                    print('Debe haber matrices reducidas en memoria primero')
+                else:
+                    graph = Grafica(self.matricesReducidas, self.matrices)
             elif opcion == '6':
                 print('Adios')
                 break

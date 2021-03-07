@@ -9,7 +9,7 @@ class CargarArchivo:
 
     def leerArchivo(self, ruta):
         try:
-            doc = ET.parse(ruta)
+            doc = ET.parse('ejemplo.xml')
             raiz = doc.getroot()
             matrices = []
             for matriz in raiz:

@@ -71,10 +71,8 @@ class ProcesarArchivo:
         
         x = 0
         for matriz in self.matrices:
-            self.resultado.append({'nombre': matriz['nombre'], 'n': matriz['n'], 'm': matriz['m'], 'items': self.matricesReducidas[x]})
+            self.resultado.append({'nombre': matriz['nombre']+'-reducida', 'n': str(len(self.matricesReducidas[x])), 'm': matriz['m'], 'filas': self.matricesReducidas[x]})
             x = x + 1
-        print('final:')
-        print(self.resultado)
 
     def matrizReducida(self, noMatriz, noRepetidas, repetidas):
         print('Calculando matriz reducida...')

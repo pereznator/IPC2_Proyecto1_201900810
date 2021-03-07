@@ -1,0 +1,28 @@
+// Comentario
+digraph {
+	nombre [label=otra]
+	n [label="n=\"2\""]
+	m [label="m=\"5\""]
+	nombre -> n
+	nombre -> m
+	11 [label=8]
+	nombre -> 11
+	21 [label=0]
+	nombre -> 21
+	31 [label=5]
+	nombre -> 31
+	41 [label=7]
+	nombre -> 41
+	51 [label=0]
+	nombre -> 51
+	12 [label=0]
+	11 -> 12
+	22 [label=15]
+	21 -> 22
+	32 [label=0]
+	31 -> 32
+	42 [label=0]
+	41 -> 42
+	52 [label=10]
+	51 -> 52
+}
