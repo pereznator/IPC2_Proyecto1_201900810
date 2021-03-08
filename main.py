@@ -24,28 +24,37 @@ class Main:
                 print('Cargar Archivo')
                 archivo = CargarArchivo()
                 if not archivo.error:
+                    print('Archivo cargado exitosamente')
                     self.matrices = archivo.matrices
+                    self.listaMatrices = archivo.listaMatrices
             elif opcion == '2':
                 print('Procesar archivo')
-                if len(self.matrices) == 0:
+                if self.listaMatrices.cuenta == 0:
                     print('Se debe cargar un archivo primero')
                 else:
-                    pa = Proceso(self.matrices)
-                    self.matricesReducidas = pa.resultado
+                    pa = Proceso(self.listaMatrices)
+                    self.listaReducidas = pa.listaReducidas
+                    self.listaReducidas.recorrer()
             elif opcion == '3':
-                if not self.matricesReducidas:
+                if not self.listaReducidas:
                     print('Debe haber generado matrices reducidas primero')
                 else:
                     print('Escribir archivo de salida')
-                    escribir = Escribir(self.matricesReducidas)
+                    escribir = Escribir(self.listaReducidas)
             elif opcion == '4':
-                print('Mostrar datos del Estudiante')
+                print('''
+                >   Jorge Antonio Pérez Ordóñez
+                >   201900810
+                >   Introduccion a la Programacion y Computacion 2 Seccion E
+                >   Ingenieria en Ciencias y Sistemas
+                >   4to Semestre
+                ''')
             elif opcion == '5':
                 print('Generar Grafica')
-                if not self.matricesReducidas and not self.matrices:
+                if not self.listaReducidas and not self.listaMatrices:
                     print('Debe haber matrices reducidas en memoria primero')
                 else:
-                    graph = Grafica(self.matricesReducidas, self.matrices)
+                    graph = Grafica(self.listaReducidas, self.listaMatrices)
             elif opcion == '6':
                 print('Adios')
                 break

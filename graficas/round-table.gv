@@ -1,6 +1,6 @@
 // Comentario
 digraph {
-	nombre [label=otra]
+	nombre [label="otra-reducida"]
 	n [label="n=\"2\""]
 	m [label="m=\"5\""]
 	nombre -> n

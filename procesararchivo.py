@@ -1,11 +1,21 @@
+from listacircular import ListaCircular
 class ProcesarArchivo:
+    matrices = []
     matricesOrdenadas = []
     matricesBinarias = []
     matricesReducidas = []
     resultado = []
-    def __init__(self, matrices):
-        self.matrices = matrices
-        print(matrices)
+    listaReducidas = ListaCircular()
+    def __init__(self, listaMatrices):
+        #self.matrices = matrices
+        aux = listaMatrices.primero
+        for m in range(listaMatrices.cuenta):
+            p = {'nombre': aux.matriz['nombre'], 'n': aux.matriz['n'], 'm': aux.matriz['m'], 'items': []}
+            for i in aux.matriz['items']:
+                ni = {'x': i['x'], 'y': i['y'], 'valor': i['valor']}
+                p['items'].append(ni)
+            self.matrices.append(p)
+            aux = aux.siguiente
         print('Procesando...')
         self.procesar()
 
@@ -71,8 +81,11 @@ class ProcesarArchivo:
         
         x = 0
         for matriz in self.matrices:
-            self.resultado.append({'nombre': matriz['nombre']+'-reducida', 'n': str(len(self.matricesReducidas[x])), 'm': matriz['m'], 'filas': self.matricesReducidas[x]})
+            matrix = {'nombre': matriz['nombre']+'-reducida', 'n': str(len(self.matricesReducidas[x])), 'm': matriz['m'], 'filas': self.matricesReducidas[x]}
+            self.resultado.append(matrix)
+            self.listaReducidas.agregarFinal(matrix)
             x = x + 1
+
 
     def matrizReducida(self, noMatriz, noRepetidas, repetidas):
         print('Calculando matriz reducida...')

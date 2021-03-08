@@ -1,9 +1,18 @@
 from graphviz import Digraph
 
 class Grafica:
+    matricesReducidas = []
+    matricesOriginales = []
     def __init__(self, matricesReducidas, matircesOriginales):
-        self.matricesReducidas = matricesReducidas
-        self.matricesOriginales = matircesOriginales
+
+        redAux = matricesReducidas.primero
+        for x in range(matricesReducidas.cuenta):
+            self.matricesReducidas.append(redAux.matriz)
+            redAux = redAux.siguiente
+        oriAux = matircesOriginales.primero
+        for x in range(matircesOriginales.cuenta):
+            self.matricesOriginales.append(oriAux.matriz)
+            oriAux = oriAux.siguiente
         self.generarMatriz()
 
     def generarMatriz(self):
@@ -24,7 +33,6 @@ class Grafica:
         if not resultado:
             print('No se encontro resultados con el nombre \"'+nombre+'\"')
             return
-        print(matriz)
         mat = Digraph(comment='Comentario')
         mat.node('nombre', matriz['nombre'])
         mat.node('n', 'n=\"'+matriz['n']+'\"')
@@ -44,7 +52,12 @@ class Grafica:
                     i = i + 1
                 f = f + 1
         else:
-            pass
+            for item in matriz['items']:
+                mat.node(str(item['x'])+str(item['y']), str(item['valor']))
+                if item['y'] == '1':
+                    mat.edge('nombre', str(item['x'])+str(item['y']))
+                else:
+                    mat.edge(str(item['x'])+str(int(item['y'])-1), str(item['x'])+str(item['y']))
 
         print(mat.source)
 

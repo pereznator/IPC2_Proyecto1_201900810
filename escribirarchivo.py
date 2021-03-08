@@ -1,11 +1,19 @@
 import xml.etree.ElementTree as ET 
 
 class EscribirArchivo:
-    def __init__(self, matrices):
-        self.matrices = matrices
+    matrices = []
+    def __init__(self, listaMatrices):
+
+        aux = listaMatrices.primero
+        for x in range(listaMatrices.cuenta):
+            self.matrices.append(aux.matriz)
+            aux = aux.siguiente
         self.generarXML()
 
     def generarXML(self):
+        print('Escribir una ruta especifica:')
+        ruta = input()
+
         matrices = ET.Element('matrices')
         for matriz in self.matrices:
             print(matriz)
@@ -20,7 +28,11 @@ class EscribirArchivo:
                 f = f + 1
 
         data = ET.tostring(matrices)
-        print(data)
-        with open('salida/reducidas.xml', 'w') as archivo:
-            archivo.write(data.decode('utf-8'))
+        if ruta == '':
+            with open('salida/reducidas.xml', 'w') as archivo:
+                archivo.write(data.decode('utf-8'))
+        else:
+            with open(ruta, 'w') as archivo:
+                archivo.write(data.decode('utf-8'))
+            
             
