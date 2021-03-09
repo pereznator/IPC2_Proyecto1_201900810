@@ -6,8 +6,9 @@ class ProcesarArchivo:
     matricesReducidas = []
     resultado = []
     listaReducidas = ListaCircular()
-    def __init__(self, listaMatrices):
+    def __init__(self, listaMatrices, invertida):
         #self.matrices = matrices
+        self.invertida = invertida
         aux = listaMatrices.primero
         for m in range(listaMatrices.cuenta):
             p = {'nombre': aux.matriz['nombre'], 'n': aux.matriz['n'], 'm': aux.matriz['m'], 'items': []}

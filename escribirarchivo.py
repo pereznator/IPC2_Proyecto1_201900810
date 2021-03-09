@@ -2,7 +2,8 @@ import xml.etree.ElementTree as ET
 
 class EscribirArchivo:
     matrices = []
-    def __init__(self, listaMatrices):
+    def __init__(self, listaMatrices, invertida):
+        self.invertida = invertida
 
         aux = listaMatrices.primero
         for x in range(listaMatrices.cuenta):
@@ -22,7 +23,10 @@ class EscribirArchivo:
             for fila in matriz['filas']:
                 i = 1
                 for element in fila:
-                    item = ET.SubElement(mat, 'dato', attrib={'x': str(i), 'y': str(f)})
+                    if self.invertida == True:
+                        item = ET.SubElement(mat, 'dato', attrib={'x': str(f), 'y': str(i)})
+                    else:
+                        item = ET.SubElement(mat, 'dato', attrib={'x': str(i), 'y': str(f)})
                     item.text = str(element['valor'])
                     i = i + 1
                 f = f + 1

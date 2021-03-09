@@ -4,15 +4,16 @@ class Grafica:
     matricesReducidas = []
     matricesOriginales = []
     def __init__(self, matricesReducidas, matircesOriginales):
-
-        redAux = matricesReducidas.primero
-        for x in range(matricesReducidas.cuenta):
-            self.matricesReducidas.append(redAux.matriz)
-            redAux = redAux.siguiente
-        oriAux = matircesOriginales.primero
-        for x in range(matircesOriginales.cuenta):
-            self.matricesOriginales.append(oriAux.matriz)
-            oriAux = oriAux.siguiente
+        if matricesReducidas != None:
+            redAux = matricesReducidas.primero
+            for x in range(matricesReducidas.cuenta):
+                self.matricesReducidas.append(redAux.matriz)
+                redAux = redAux.siguiente
+        if matircesOriginales != None:
+            oriAux = matircesOriginales.primero
+            for x in range(matircesOriginales.cuenta):
+                self.matricesOriginales.append(oriAux.matriz)
+                oriAux = oriAux.siguiente
         self.generarMatriz()
 
     def generarMatriz(self):
@@ -61,4 +62,4 @@ class Grafica:
 
         print(mat.source)
 
-        mat.render('reportes/grafo.gv')
+        mat.render('reportes/'+matriz['nombre']+'.gv')

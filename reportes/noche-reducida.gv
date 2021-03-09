@@ -1,0 +1,32 @@
+// Comentario
+digraph {
+	nombre [label="noche-reducida"]
+	n [label="n=\"3\""]
+	m [label="m=\"4\""]
+	nombre -> n
+	nombre -> m
+	11 [label=4]
+	nombre -> 11
+	21 [label=4]
+	nombre -> 21
+	31 [label=0]
+	nombre -> 31
+	41 [label=0]
+	nombre -> 41
+	12 [label=5]
+	11 -> 12
+	22 [label=0]
+	21 -> 22
+	32 [label=5]
+	31 -> 32
+	42 [label=0]
+	41 -> 42
+	15 [label=0]
+	12 -> 15
+	25 [label=0]
+	22 -> 25
+	35 [label=0]
+	32 -> 35
+	45 [label=1]
+	42 -> 45
+}
