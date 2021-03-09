@@ -9,17 +9,6 @@ class ListaCircular:
     def vacia(self):
         return self.primero == None
 
-    def agregarInicio(self, matriz):
-        if self.vacia():
-            self.primero = self.ultimo = Nodo(matriz)
-            self.ultimo.siguiente = self.primero
-        else:
-            aux = Nodo(matriz)
-            aux.siguiente = self.primero
-            self.primero = aux
-            self.ultimo.siguiente = self.primero
-        self.cuenta += 1
-
     def agregarFinal(self, matriz):
         if self.vacia():
             self.primero = self.ultimo = Nodo(matriz)

@@ -27,6 +27,7 @@ class Main:
                     print('Archivo cargado exitosamente')
                     self.matrices = archivo.matrices
                     self.listaMatrices = archivo.listaMatrices
+                    #self.listaMatrices.recorrer()
             elif opcion == '2':
                 print('Procesar archivo')
                 if self.listaMatrices.cuenta == 0:

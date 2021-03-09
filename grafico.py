@@ -61,4 +61,4 @@ class Grafica:
 
         print(mat.source)
 
-        mat.render('graficas/round-table.gv')
+        mat.render('reportes/grafo.gv')

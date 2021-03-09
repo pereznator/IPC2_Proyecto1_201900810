@@ -59,29 +59,39 @@ class ProcesarArchivo:
 
     def reducir(self):
         m = 0
+        setFrecuencias = []
         for matriz in self.matricesBinarias:
             filas = []
             n = 0
             filasRepetidas = []
             noRepetidas = []
+            frecuencias = []
             for fila in matriz:
                 repetida = False
                 i = 0
+                frecuencia = {'numFila': '', 'numRepetidas': 0, 'fila': fila}
                 for f in filas:
                     if fila == f:
                         repetida = True
                         filasRepetidas.append({'original': i, 'repetida': n})
+                        for x in frecuencias:
+                            if x['fila'] == f:
+                                x['numRepetidas'] += 1
                     i = i + 1
                 if not repetida:
+                    frecuencia['numFila'] = n + 1
+                    frecuencia['numRepetidas'] += 1
+                    frecuencias.append(frecuencia) 
                     filas.append(fila)
                     noRepetidas.append(n)
                 n = n + 1
+            setFrecuencias.append(frecuencias)
             self.matrizReducida(m, noRepetidas, filasRepetidas)
             m = m + 1
         
         x = 0
         for matriz in self.matrices:
-            matrix = {'nombre': matriz['nombre']+'-reducida', 'n': str(len(self.matricesReducidas[x])), 'm': matriz['m'], 'filas': self.matricesReducidas[x]}
+            matrix = {'nombre': matriz['nombre']+'-reducida', 'n': str(len(self.matricesReducidas[x])), 'm': matriz['m'], 'filas': self.matricesReducidas[x], 'frecuencias': setFrecuencias[x]}
             self.resultado.append(matrix)
             self.listaReducidas.agregarFinal(matrix)
             x = x + 1

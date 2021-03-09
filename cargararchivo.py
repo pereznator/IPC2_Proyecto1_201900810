@@ -10,7 +10,7 @@ class CargarArchivo:
 
     def leerArchivo(self, ruta):
         try:
-            doc = ET.parse('ejemplo.xml')
+            doc = ET.parse(ruta)
             raiz = doc.getroot()
             matrices = []
             listaMatrices = ListaCircular()
@@ -18,7 +18,7 @@ class CargarArchivo:
                 if matriz.tag == 'matriz':
                     nmatriz = {'nombre': matriz.attrib['nombre'], 'n': matriz.attrib['n'], 'm': matriz.attrib['m'], 'items': [] }    
                     for x in matriz:
-                        if x.tag == 'item':
+                        if x.tag == 'dato':
                             x.attrib['valor'] = x.text
                             nmatriz['items'].append(x.attrib)
                     matrices.append(nmatriz)
